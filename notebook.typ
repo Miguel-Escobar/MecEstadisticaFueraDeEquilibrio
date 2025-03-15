@@ -24,7 +24,7 @@
 
 
 #align(center, [#text(30pt)[
-  Mecánica Estadística Fuera del Equilibrio] \ #text(13pt)[Clase 1]
+  Mecánica Estadística Fuera del Equilibrio] \ #text(13pt)[Notas de clase]
 ])
 
 = Introducción y repaso de meca y mesta clásicas
@@ -56,3 +56,55 @@ No se han descubierto expresiones generales para la función distribución, ni s
 - Materia Activa: Inyección y disipación de energía a distintas escalas.
 
 En los últimos 2 modelos uno puede pensar que existen grados de libertad internos que absorben la energía y todo.
+
+= Clase 2
+
+== Balance detallado
+
+Algunas definiciones útiles:
+
+#definición[ Dado un microestado $Gamma = {q_i, p_i}$ vamos a definir:
+- Su evolución temporal: $Gamma^t$
+- Su inversión temporal: $overline(Gamma) = {q_i, - p_i}$
+]
+
+Rápidamente, tenemos varias propiedades:
+
+#propiedad[
+  + $overline(overline(Gamma)) = Gamma$
+  + $dif Gamma = dif overline(Gamma)$ (entendido como diferencial de volumen, aunque debo preguntar al final de la clase esto)
+  + $dif Gamma^t = dif Gamma$
+  + $(overline(Gamma^t))^t = overline(Gamma)$
+]
+
+Ahora en adelante también usaremos supuestos simplificantes:
+- Hamiltoniano es par en $p_i$
+- Observables pares (denotados $A_Gamma$)
+
+Notación: $A_Gamma (t)$ es la evolución temporal del observable.
+
+#propiedad[Gracias a los supuestos podemos concluir que:
++ $A_(overline(Gamma))(0) = A_Gamma (0)$ por probabilidad.
++ $A_(overline(Gamma)) (t)= A_Gamma (-t)$ aplicando (1) de los operadores y la prop (4) de la inversión temporal.]
+
+Ahora volvamos al supuesto de equilibrio térmico:
+-  $F_(e q) = f(H)$ (no más cantidades conservadas)
+-  $implies F_(e q)(overline(Gamma)) = F_( e q) (Gamma)$ por paridad de $H$.
+
+Más definiciones:
+
+#definición("Distribuciones de probablidad varias")[
+  + $P_( e q)(a) = integral dif Gamma F_( e q) (Gamma) delta(A_Gamma - a)$
+  + $P_(e q) (a_1,, t_1, a_2, t_2) = integral dif Gamma F_(e q) (Gamma) delta(A_(Gamma^(t_1)) - a_1) delta(A_(Gamma^(t_2)) - a_2)$
+]
+Estas definiciones uno las puede manipular para concluir la propiedad de balance detallado:
+
+#align(center)[#bloque[$P_(e q) (a_1,, t_1, a_2, t_2) = P_(e q) (a_2, t_1, a_1, t_2)$]]
+
+Del balance detallado podemos sacar otras conclusiones, como por ejemplo, *en un sistema en equilibrio no pueden haber flujos de cantidades*, pues el flujo inverso es tan probable como el flujo directo, luego se deberían cancelar.
+
+Libro para grupo de renormalización: Cardy Scaling laws in physics o algo así. Es tipo Landau.
+
+== Universalidad
+
+La universalidad se refiere a encontrar _leyes universales_, por ejemplo, la ley de Ohm o los líquidos en el punto crítico. Notemos que no es que una misma ecuación con los mismos parámetros describa un fenómeno en todas sus posibles realizaciones, pero sí que la estructura de la ecuación se mantenga (por ejemplo, mantener el mismo exponente crítico, o que la corriente depende lineal con el campo). El tipo/orden de dependencia no debería cambiar.
