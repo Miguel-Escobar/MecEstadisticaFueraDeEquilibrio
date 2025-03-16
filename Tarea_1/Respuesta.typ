@@ -40,3 +40,23 @@ $
 $
 
 No hay interacción entre las partículas ni procesos de tumbling (pues $M = 1, alpha = 0$) luego la probabilidad de pasar de $Gamma_1$ a $Gamma_2$ es 1. Sin embargo, la probabilidad de pasar de $Gamma_2$ a $Gamma_1$ es 0, ya que la partícula sólo se mueve a la derecha. Luego el proceso es irreversible. Esto se puede haber dicho en lenguaje menos explícito como "la presencia de un flujo persistente es un indicador de irreversibilidad temporal".
+
+
+= Pregunta 2
+
++ La dificultad acá radica en pasar de la distribución maxwelliana al parámetro $V_0$. Podemos partir con otra expresión para $sin(k x)$ que lo vincula de vuelta con la transformada de Fourier de la corriente. Esto es:
+
+$
+  arrow(J) (arrow(r)) &= rho_0 V_0 sin( k x) hat(y) \
+  &= rho_0 V_0 [e^(i k x) - e^ (- i k x)]/(2 i) hat(y) \
+  &= ( rho_0 V_0 )/( 2 i ) hat(y) [e^(i k x) - e^ (- i k x)]\
+  &= V rho_0 / (2 i) [1/V integral dif r V_0 delta(r - x) e^(i k r) - 1/V integral dif r V_0 delta(r + x) e^(i k r)]
+$
+
+Fijamos un x y nos damos cuenta que estas son 2 partículas, una en $x$ y otra en $-x$ que tienen velocidad $V_0$ en direcciones opuestas. Bajo el supuesto de independencia podemos calcular la probabilidad de esto como:
+
+$
+  p(arrow(J)) = p(V_0 hat(y)) dot (p(-V_0 hat(y))) = (m/(2 pi k T))^(3/2) e^(-(m V_0^2)/(k T))
+$
+
+Aquí m es constante para las 2 supuestas partículas. Podemos decir que está dado por $(rho_0 V)/ 2$.
