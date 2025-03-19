@@ -44,19 +44,38 @@ No hay interacción entre las partículas ni procesos de tumbling (pues $M = 1, 
 
 = Pregunta 2
 
-+ La dificultad acá radica en pasar de la distribución maxwelliana al parámetro $V_0$. Podemos partir con otra expresión para $sin(k x)$ que lo vincula de vuelta con la transformada de Fourier de la corriente. Esto es:
++ La dificultad acá radica en pasar de la distribución maxwelliana al parámetro $V_0$. Primero voy a intentar jugar con la expresión para la corriente a ver si se me ilumina la mente. Esto es:
 
 $
-  arrow(J) (arrow(r)) &= rho_0 V_0 sin( k x) hat(y) \
+  arrow(J) (x) &= rho_0 V_0 sin( k x) hat(y) \
   &= rho_0 V_0 [e^(i k x) - e^ (- i k x)]/(2 i) hat(y) \
-  &= ( rho_0 V_0 )/( 2 i ) hat(y) [e^(i k x) - e^ (- i k x)]\
-  &= V rho_0 / (2 i) [1/V integral dif r V_0 delta(r - x) e^(i k r) - 1/V integral dif r V_0 delta(r + x) e^(i k r)]
+  &= ( rho_0 V_0 )/( 2 i ) hat(y) [e^(i k x) - e^ (- i k x)]
 $
 
-Fijamos un x y nos damos cuenta que estas son 2 partículas, una en $x$ y otra en $-x$ que tienen velocidad $V_0$ en direcciones opuestas. Bajo el supuesto de independencia podemos calcular la probabilidad de esto como:
+Y en verdad, ¿qué significa calcular la probabilidad de $V_0$? Significa que queremos ver todas las maneras posibles de tener $N$ partículas con distribución maxwelliana tal que la corriente quede caracterizada con el factor buscado. Bueno, esto es que:
 
 $
-  p(arrow(J)) = p(V_0 hat(y)) dot (p(-V_0 hat(y))) = (m/(2 pi k T))^(3/2) e^(-(m V_0^2)/(k T))
+  sum_i m_i arrow(v_i) delta(arrow(r) - arrow(r_i)) = rho_0 V_0 sin(k x) hat(y)
 $
 
-Aquí m es constante para las 2 supuestas partículas. Podemos decir que está dado por $(rho_0 V)/ 2$.
+En verdad esto no me está haciendo mucho sentido... Creo que hay un typo y lo que se nos pasa es la transformada de fourier de la corriente no?
+
+O sea que en verdad sería:
+
+$
+  1/V sum_j m_j arrow(v_j) e^(- i arrow(k) arrow(r)_j) = rho_0 V_0 sin(k x) hat(y)
+$
+
+Okey ahora sí estamos llegando a algún lado creo. Porque okey digamos que $rho_0 = 1/V sum_i m_i = N m /V$, y todas las masas son iguales. Luego:
+
+$
+  rho_0/N sum_j arrow(v_j) e^(- i arrow(k) arrow(r)_j) = rho_0 V_0 sin(k x) hat(y)
+$
+
+Okey se me va el $rho_0$ y me queda que:
+
+$
+  1/N sum_j arrow(v_j) e^(- i arrow(k) arrow(r)_j) =  V_0 sin(k x) hat(y)
+$
+
+Tenemos que bajo supuesto de independencia, la densidad de probabilidad del vector aleatorio $(v_1, v_2, ..., v_n)$ es la multiplicación de Maxwellianas. Entonces si integramos esta medida producto sobre el conjunto $A = {(v_i)_(i in [N]) in (RR^(3))^N | 1/N sum_j arrow(v_j) e^(- i arrow(k) arrow(r)_j) =  V_0 sin(k x) hat(y)}$ nos dará la probabilidad de encontrar configuraciones con esa densidad de corriente. Okey no creo que sea por acá. Ya pero digamos que ya estamos en un conjunto donde sigue esa forma, es decir que ya estamos en una configuración de onda de cizalle. Osea $1/N sum_j arrow(v_j) e^(- i arrow(k) arrow(r)_j)$ ya es de la forma $A sin(k x) hat(y)$. 
