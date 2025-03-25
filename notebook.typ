@@ -108,3 +108,54 @@ Libro para grupo de renormalización: Cardy Scaling laws in physics o algo así.
 == Universalidad
 
 La universalidad se refiere a encontrar _leyes universales_, por ejemplo, la ley de Ohm o los líquidos en el punto crítico. Notemos que no es que una misma ecuación con los mismos parámetros describa un fenómeno en todas sus posibles realizaciones, pero sí que la estructura de la ecuación se mantenga (por ejemplo, mantener el mismo exponente crítico, o que la corriente depende lineal con el campo). El tipo/orden de dependencia no debería cambiar.
+
+
+= Ecuación de Difusión:
+
+Si tenemos un fluido con partículas suspendidas *no interactuantes* podemos describir su difusión mediante $n(arrow(r), t)$, interpretable o bien como densidad de partículas o bien como una densidad de probabilidad de que una partícula marcada esté en $arrow(r)$ en el tiempo $t$. En cualquier caso, la ecuación es:
+
+$
+  partial_t n = D nabla^2 n
+$
+
+Consideremos 1 sóla partícula browniana, con la misma configuración de la ecuación de Langevin (materia que no está en este apunte). Esto es:
+
+$
+  n(arrow(r), 0) = delta (arrow(r))
+$
+
+Esto es un proceso de no equilibrio, el más sencillo. La solución utilizando la transformada de Fourier es:
+
+$
+  n(arrow(r), t) = 1/(4 pi D t)^(d/2) e^(- norm(arrow(r))^2 /(4 D t))
+$
+
+#pagebreak()
+
+Calculemos promedios:
+#bloque[
+$
+  angle.l arrow(r) angle.r = 0 " por cálculo directo" \
+  angle.l norm(arrow(r))^2 angle.r = 2 d D t " La fórmula de Einstein"
+$
+]
+
+Esto es distinto a la predicción de Langevin, diferencia que se debe a la inercia que puede tener la partícula browniana en tiempos cortos (muy cortos en efectos prácticos). La partícula difusiva no tiene inercia, lo que hace altiro dominar el comportamiento lineal del desplazamiento cuadrático medio. En estricto rigor, la fórmula de Einstein entonces se expresa correctamente como:
+
+$
+  D = lim_(t arrow oo) (angle.l Delta r^2(t) angle.r)/(2 d t)
+$
+
+En simulaciones numéricas uno usa otra variación de la fórmula:
+
+$
+  D = lim_(t arrow oo) partial_t (angle.l Delta r^2(t) angle.r)/(2 d)
+$
+
+De aquí uno puede seguir matraqueando y obtener la relación de Green-Kubo:
+
+$
+  D = 1/d integral_0^oo C_v (s) dif s
+$
+
+Donde $C_v$ es la función de correlación de las velocidades ($C_v (s) = angle.l arrow(v)(s) dot arrow(v)(0) angle.r$)

@@ -44,7 +44,7 @@ No hay interacción entre las partículas ni procesos de tumbling (pues $M = 1, 
 
 = Pregunta 2
 
-+ La dificultad acá radica en pasar de la distribución maxwelliana al parámetro $V_0$. Podemos partir con otra expresión para $sin(k x)$ que lo vincula de vuelta con la transformada de Fourier de la corriente. Esto es:
+La dificultad acá radica en pasar de la distribución maxwelliana al parámetro $V_0$. Podemos partir con otra expresión para $sin(k x)$ que lo vincula de vuelta con la transformada de Fourier de la corriente. Esto es:
 
 $
   arrow(J) (arrow(r)) &= rho_0 V_0 sin( k x) hat(y) \
@@ -53,10 +53,15 @@ $
   &= V rho_0 / (2 i) [1/V integral dif r V_0 delta(r - x) e^(i k r) - 1/V integral dif r V_0 delta(r + x) e^(i k r)]
 $
 
-Fijamos un x y nos damos cuenta que estas son 2 partículas, una en $x$ y otra en $-x$ que tienen velocidad $V_0$ en direcciones opuestas. Bajo el supuesto de independencia podemos calcular la probabilidad de esto como:
+Fijamos un x y nos damos cuenta que estas son 2 partículas con masas $(rho_0 V)/2$, una en $x$ y otra en $-x$ que tienen velocidad $V_0 hat(y)$ en direcciones opuestas (me queda un $i$ flotando que no sé donde meterlo en verdad). Bajo el supuesto de independencia podemos calcular la probabilidad de esto como:
 
 $
-  p(arrow(J)) = p(V_0 hat(y)) dot (p(-V_0 hat(y))) = (m/(2 pi k T))^(3/2) e^(-(m V_0^2)/(k T))
+  p(arrow(J)) = p(V_0 hat(y)) dot p(-V_0 hat(y)) = (m/(2 pi k T))^(3) e^(-(m V_0^2)/(k T))
 $
 
 Aquí m es constante para las 2 supuestas partículas. Podemos decir que está dado por $(rho_0 V)/ 2$.
+
+Ahora para $P(V_0)/P(0) = e^(-(m V_0^2)/(k T))$, tomemos valores de un líquido en un recipiente con $rho_0 V = 2 "kg"$ (redondeando los cálculos potentemente para que yo sea feliz, como por ejemplo $k = 10^(-23)$). Osea $T = 100 "K"$, $m = 1 "kg"$, $k T = 10^(-21)$ y no sé, digamos que $V_0 = 1 "m" dot "s"^(-1)$. Entonces $P(V_0)/P(0) = e^(- 10^21)$ approx, que es muy muy chico prácticamente $0$. De hecho es menor que la resolución de la calculadora online que iba a usar (luego menor que $2^(-64)$, que es un poco obvio si lo escribo).
+
+
+== Pregunta 3:
