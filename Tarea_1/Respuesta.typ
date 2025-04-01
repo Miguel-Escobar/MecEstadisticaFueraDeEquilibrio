@@ -61,7 +61,33 @@ $
 
 Aquí m es constante para las 2 supuestas partículas. Podemos decir que está dado por $(rho_0 V)/ 2$.
 
-Ahora para $P(V_0)/P(0) = e^(-(m V_0^2)/(k T))$, tomemos valores de un líquido en un recipiente con $rho_0 V = 2 "kg"$ (redondeando los cálculos potentemente para que yo sea feliz, como por ejemplo $k = 10^(-23)$). Osea $T = 100 "K"$, $m = 1 "kg"$, $k T = 10^(-21)$ y no sé, digamos que $V_0 = 1 "m" dot "s"^(-1)$. Entonces $P(V_0)/P(0) = e^(- 10^21)$ approx, que es muy muy chico prácticamente $0$. De hecho es menor que la resolución de la calculadora online que iba a usar (luego menor que $2^(-64)$, que es un poco obvio si lo escribo).
+Ahora para $P(V_0)/P(0) = e^(-(m V_0^2)/(k T))$, tomemos valores de un líquido en un recipiente con $rho_0 V = 2 "kg"$ (redondeando los cálculos potentemente para que yo sea feliz, como por ejemplo $k = 10^(-23)$). Osea $T = 100 "K"$, $m = 1 "kg"$, $k T = 10^(-21)$ y no sé, digamos que $V_0 = 1 "m" dot "s"^(-1)$. Entonces $P(V_0)/P(0) = e^(- 10^21)$ approx, que es muy muy chico prácticamente $0$. De hecho es menor que la resolución de la calculadora online que iba a usar (luego menor que $2^(-64)$, que es un poco obvio si lo escribo). Es tan ridículamente chico que en verdad sospecho que me equivoqué en el razonamiento.
 
 
 == Pregunta 3:
+
+Voy a basarme en el capítulo 6 del libro _Nonequilibrium Statistical Physics: A modern persepctive_ de la bibliografía del curso.
+
+En general, los exponentes de crecimiento de dominios surgen del estudiio de sistemas templados, es decir, donde en un sistema que presenta una transición de fase, los parámetros del sistema cambian repentínamente y drásticamente de una zona del diagrama de fases a otra. 
+
+Por ejemplo, en un iman con temperatura por sobre la transición ferromagnética, disminuir rápidamente la temperatura por debajo de la transición provoca la aparición de dominios localmente ordenados que crecen, debido a que repentinamente el estado ordenado presenta menor energía. 
+
+Sin embargo, a diferencia de una transición adiabática de la temperatura, en el templado pueden coexistir regiones con magnetización distinta, debido a que la magnetización no tuvo tiempo de ser homogeneizada en el punto crítico, donde las correlaciones entre distintas regiones del imán aumentan y provocan que el imán entero se magnetize on una única magnetización. No pasar por este proceso hace que los dominios aparezcan debido a fluctuaciones que permanecen locales, permitiendo así la aparición de distintos dominios en distintas secciones del material.
+
+Una característica principal de estos procesos es la existencia de leyes de reescalamiento (para tiempos grandes) donde un sistema adecuadamente reescalado presenta las mismas propiedades estadísticas que otro. Esto es el fenomeno de autosimilitud. En este caso, el reescalamiento necesario para un sistema en 2 tiempos distintos sólo dependerá de la diferencia temporal. 
+
+== Caso 1-dimensional:
+
+En un modelo de Ising, la dinámica 1 dimensional es particular en que su transición ocurre en temperatura nula, no permitiendo el proceso de templado antes descrito. Sin embargo, se puede estudiaar el caso del crecimiento de dominios al aumentar repentinamente el largo de correlación (bajando la temperatura). Esto provocará dinámica de coarsening, aunque una vez que el largo típico de los dominios alcanza la longitud de correlación este proceso se detiene. Para estudiar este proceso resulta ser importante considerar si queremos que la magnetización se conserve o no. Pensando el modelo de Ising fuera del contexto de los imanes, sino como un modelo de condensación por ejemplo, existen casos donde si se esperaría conservar la magnetización total. Esto lleva a 2 exponentes de reescalamiento distintos. En el caso de conservación, se obtiene un exponente $1/3$, mientras que sin conservación el crecimiento es más rápido, obteniendo un exponente $1/2$.
+
+== Otras dimensiones
+
+El exponente de coarsening resulta *no depender de la dimensión*. Esto es contraintuitivo si uno piensa en otros exponentes críticos, que sí suelen depender de la dimensión. Sin embargo, usando un formalismo basado en al energía libre de Landau, se puede confirmar este resultado, al menos para el caso no conservaivo, ya que obtenemos que la ecuación para la evolución del tamaño de un dominio esférico de radio $R(t)$ es:
+
+$
+  dot(R) = -(d-1)/R + xi
+$
+
+Donde $xi$ es un ruido blanco gaussiano. Luego, si el radio inicial  es $R(0) = L$, obtendremos el reescalamiento si intentamos calcular el tiempo promedio que toma $R$ en decaer a 0. En general, el tiempo de primera pasada a 0 en 1D de un caminante aleatorio (simétrico) va cuadrático con la condición inicial. Esto también lo vimos en clases para los procesos difusivos. Si despreciamos el ruido, resulta ser que la solución de la ecuación determinista también va cuadrática con el tiempo. Luego, uno espera que la ecuación con ambos términos en verdad tenga el mismo comportamiento cuadrático. Invirtiendo la relación para obtener $L(t)$ obtenemos el exponente $1/2$ para todas las dimensiones.
+
+El caso conservativo es más complicado, debido a que la dinámica es más restringida. Sin embargo, es posible llegar a un resultado similar, permitiendo concluir que la dimensión no es relevante para el proceso de coarsening.
