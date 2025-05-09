@@ -68,8 +68,10 @@ $
   partial_t phi = lambda D^2 (delta F)/(delta phi) + D eta
 $
 
-Acá también aprovecho que $-eta$ también sería un ruido blanco con las mismas propiedades, y permito que $lambda$ sea negativo. Debido a la forma tridiagonal del operador $D$, lo que hace es en verdad sólo un acoplamiento efectivo en las ecuaciones de Langevin resultantes. Podemos entonces pasar a la ecuación de Fokker-Planck asociada a este proceso:
+Acá también aprovecho que $-eta$ también sería un ruido blanco con las mismas propiedades, y permito que $lambda$ sea negativo. Notemos que en efecto $D eta$ siempre será sólo una combinación lineal (posiblemente numerable) de ruidos blancos. Si el operador es razonable, los coeficientes de esta combinación lineal serán sumables. Este es el caso de los operadores de diferencia finita por ejemplo. Esto entonces es simplemente, ¡otro ruido blanco! pero con la constante $Gamma$ de correlación cambiada adecuadamente (veremos esto más adelante). Entonces en efecto esta ecuación es sólo una ecuación de Langevin más. 
+
+Ahora se nos pide pasar a la ecuación de Fokker-Planck asociada. Sin embargo, ahora no podemos derivar como tal. Es ahora que en verdad también debemos especificar que si bien $eta$ sigue siendo un ruido blanco en el tiempo, ya no tiene sentido que lo sea en el espacio. Para ver bien qué es lo que puede ser usaré una definición del ruido blanco que utilizé en una tarea anterior, es decir un proceso estocástico gaussiano indexado por funciones cuadrado integrables. Lo que yo digo es que ahora en vez de considerar $eta$ como aquel indexado por las cuadrado integrables de espacio y tiempo, tomo simplemente en espacio las inicatrices de $[x, x+h]$ (debido a la discretización del espacio) y multiplico por cualquier función cuadrado integrable en el tiempo. Esto significa que ahora la correlación es $angle.l eta(x, t), eta(x', t') angle.r = Gamma h delta_(x, x') delta(t - t')$ (creo, cierto?). La ecuación de Fokker-Planck no es más que una ecuación maestra asociada a este proceso (de acuerdo con Van-Kampen). Sin embargo, igual en algún momento queremos tirar un límite de $h$ pequeño así que también ignoro los ordenes más que lineales en $h$. UFFFF qué cálculo.
 
 $
-  partial_t P(phi, t) = 
+  partial_t P(phi, t) =  
 $
